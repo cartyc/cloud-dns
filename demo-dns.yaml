@@ -18,6 +18,7 @@ spec:
   name: "www.example.com."
   type: "A"
   ttl: 300
+  visibility: private
   managedZoneRef:
     name: example-dns-zone
   rrdatas:
