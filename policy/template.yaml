@@ -1,0 +1,22 @@
+apiVersion: templates.gatekeeper.sh/v1
+kind: ConstraintTemplate
+metadata:
+  name: dnspolicy
+spec:
+  crd:
+    spec:
+      names:
+        kind: DNSPolicy
+      validation:
+        openAPIV3Schema:
+          type: object
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |-
+        package dnspolicy
+        violation[{"msg": message}]{
+          asset := input.review
+          asset.kind.kind == "DNSRecordSet"
+          not contains(input.review.object.spec.name, "example.com.")
+          message := sprintf("bad dns name %s", [input.review.object.spec.name])
+        }
