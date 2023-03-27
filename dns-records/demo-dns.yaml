@@ -2,6 +2,8 @@ apiVersion: dns.cnrm.cloud.google.com/v1beta1
 kind: DNSManagedZone
 metadata:
   name: example-dns-zone
+  annotations:
+    cnrm.cloud.google.com/blueprint: 'kpt-fn'
 spec:
   dnsName: "example.com."
   visibility: private
@@ -10,6 +12,8 @@ apiVersion: dns.cnrm.cloud.google.com/v1beta1
 kind: DNSRecordSet
 metadata:
   name: dnsrecordset-sample-a
+  annotations:
+    cnrm.cloud.google.com/blueprint: 'kpt-fn'
 spec:
   name: "www.example.com."
   type: "A"
@@ -23,6 +27,8 @@ apiVersion: dns.cnrm.cloud.google.com/v1beta1
 kind: DNSRecordSet
 metadata:
   name: dnsrecordset-sample-b
+  annotations:
+    cnrm.cloud.google.com/blueprint: 'kpt-fn'
 spec:
   name: "test.example.com."
   type: "A"
