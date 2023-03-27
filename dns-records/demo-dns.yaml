@@ -45,7 +45,7 @@ metadata:
   annotations:
     cnrm.cloud.google.com/blueprint: 'kpt-fn'
 spec:
-  name: "test.test.com."
+  name: "test2.example.com."
   type: "A"
   ttl: 300
   managedZoneRef:
